@@ -1,16 +1,8 @@
 # docker-ttrss
 
-This repo is based on the work of [fischerman/docker-ttrss](https://github.com/fischerman/docker-ttrss), I only needed to add the [Feedly theme](https://github.com/levito/tt-rss-feedly-theme)  
+Tiny Tiny RSS docker container with Feedly theme
 
-## About Tiny Tiny RSS
-
-> *From [the official readme](http://tt-rss.org/redmine/projects/tt-rss/wiki):*
-
-Tiny Tiny RSS is an open source web-based news feed (RSS/Atom) reader and aggregator,
-designed to allow you to read news from any location,
-while feeling as close to a real desktop application as possible.
-
-![](http://tt-rss.org/images/1.9/1.jpg)
+This repo is based on the work of [fischerman/docker-ttrss](https://github.com/fischerman/docker-ttrss), I only needed to add the [Feedly theme](https://github.com/levito/tt-rss-feedly-theme)
 
 ## Quickstart
 
