@@ -20,13 +20,13 @@ RUN ln -s /etc/nginx/sites-available/ttrss /etc/nginx/sites-enabled/ttrss && \
 # install ttrss, add feedly theme & patch configuration
 WORKDIR /var/www
 RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y curl --no-install-recommends && rm -rf /var/lib/apt/lists/* && \
-    curl -SL https://git.tt-rss.org/git/tt-rss/archive/master.tar.gz | tar xzC /var/www --strip-components 1 && \
-    wget https://github.com/levito/tt-rss-feedly-theme/archive/master.zip && \
-    unzip master.zip && \
-    rm master.zip && \
-    cp tt-rss-feedly-theme-master/feedly.css tt-rss-feedly-theme-master/feedly-night.css /var/www/themes && \
-    cp -r tt-rss-feedly-theme-master/feedly/ /var/www/themes && \
-    rm -rf tt-rss-feedly-theme-master && \
+    curl -SL https://git.tt-rss.org/fox/tt-rss/archive/17.12.tar.gz| tar xzC /var/www --strip-components 1 && \
+    wget https://github.com/levito/tt-rss-feedly-theme/archive/v1.4.0.zip && \
+    unzip v1.4.0.zip && \
+    rm v1.4.0.zip && \
+    cp tt-rss-feedly-theme-1.4.0/feedly.css tt-rss-feedly-theme-1.4.0/feedly-night.css /var/www/themes && \
+    cp -r tt-rss-feedly-theme-1.4.0/feedly/ /var/www/themes && \
+    rm -rf tt-rss-feedly-theme-1.4.0 && \
     apt-get purge -y --auto-remove curl wget unzip && \
     chown www-data:www-data -R /var/www && \
     cp config.php-dist config.php
