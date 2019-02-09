@@ -5,15 +5,12 @@ LABEL maintainer="Jean-Pierre Palik - kama@palik.fr" \
       version="1.0"
 
 RUN DEBIAN_FRONTEND=noninteractive apt-get update -y \
+    && apt-get install -y software-properties-common python-software-properties \
     && add-apt-repository ppa:ondrej/php && apt-get update -y \
-    && apt-get install -y git nginx supervisor php7.0 \
-    libapache2-mod-php7.0 php7.0 php7.0-common php7.0-gd \
-    php7.0-mysql php7.0-mcrypt php7.0-curl php7.0-intl php7.0-xsl \
-    php7.0-mbstring php7.0-zip php7.0-bcmath php7.0-iconv php7.0-soap \
-    wget unzip && apt-get clean && rm -rf /var/lib/apt/lists/*
-
-# enable the mcrypt module
-RUN php5enmod mcrypt
+    && apt-get install -y --force-yes git nginx supervisor php5.6 php5.6-mcrypt \
+    php5.6-mbstring php5.6-curl php5.6-cli php5.6-mysql php5.6-gd php5.6-intl \
+    php5.6-xsl php5.6-zip php5.6-soap wget unzip \
+    && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # add ttrss as the only nginx site
 ADD ttrss.nginx.conf /etc/nginx/sites-available/ttrss
