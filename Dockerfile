@@ -5,7 +5,7 @@ LABEL maintainer="Jean-Pierre Palik - kama@palik.fr" \
       version="1.0"
 
 RUN DEBIAN_FRONTEND=noninteractive apt-get update -y \
-    && add-apt-repository ppa:ondrej/php && apt-get -y update && \
+    && add-apt-repository ppa:ondrej/php && apt-get update -y && \
     && apt-get install -y git nginx supervisor php7.0 \
     libapache2-mod-php7.0 php7.0 php7.0-common php7.0-gd \
     php7.0-mysql php7.0-mcrypt php7.0-curl php7.0-intl php7.0-xsl \
