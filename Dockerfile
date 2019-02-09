@@ -4,10 +4,13 @@ LABEL maintainer="Jean-Pierre Palik - kama@palik.fr" \
       description=" TTRSS server with feedly theme" \
       version="1.0"
 
-RUN DEBIAN_FRONTEND=noninteractive apt-get update && apt-get install -y \
-    git nginx supervisor php5-fpm php5-cli php5-curl php5-gd php5-json \
-    php5-pgsql php5-ldap php5-mysql php5-mcrypt wget unzip && \
-    apt-get clean && rm -rf /var/lib/apt/lists/*
+RUN DEBIAN_FRONTEND=noninteractive apt-get update -y \
+    && add-apt-repository ppa:ondrej/php && apt-get -y update && \
+    && apt-get install -y git nginx supervisor php7.0 \
+    libapache2-mod-php7.0 php7.0 php7.0-common php7.0-gd \
+    php7.0-mysql php7.0-mcrypt php7.0-curl php7.0-intl php7.0-xsl \
+    php7.0-mbstring php7.0-zip php7.0-bcmath php7.0-iconv php7.0-soap \
+    wget unzip && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # enable the mcrypt module
 RUN php5enmod mcrypt
